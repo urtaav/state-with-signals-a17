@@ -1,0 +1,17 @@
+<p-card header="">
+        <app-planes-list></app-planes-list>
+    <ng-template pTemplate="footer">
+        <div class="flex align-items-center">
+            <p-inputSwitch [(ngModel)]="checked"
+            [disabled]="store.$loading()"
+            (onChange)="displayDescriptions($event)"></p-inputSwitch>
+          <span class="ml-2">Display Descriptions</span>
+        </div>
+
+        @if(store.$items().length){
+            <app-planes-page-indicator/>
+
+            <app-planes-progress/>
+        }
+    </ng-template>
+</p-card>
